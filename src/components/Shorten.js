@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useCallback, useState } from "react";
+import { useEffect, useState } from "react";
 
 import {
   StyledSection,
@@ -17,26 +17,7 @@ function Shorten() {
   const [value, setValue] = useState("");
   const [isValueEmpty, setIsValueEmpty] = useState(null);
   const [links, setLinks] = useState([]);
-
-  async function getData() {
-    try {
-      const res = await axios.get(
-        `https://api.shrtco.de/v2/shorten?url=${value}`
-      );
-      const data = res.data;
-      const temp = {
-        key: data.result.code,
-        original: data.result.original_link,
-        short: data.result.full_short_link,
-      };
-
-      if (data.ok) {
-        setLinks([...links, temp]);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  const STORAGE_KEY = "URL_SHORTENING_APP";
 
   function handleInput(e) {
     if (isValueEmpty) {
@@ -52,13 +33,64 @@ function Shorten() {
 
   function handleSubmit(event) {
     event.preventDefault();
+
     if (value.trim().length === 0) {
       return setIsValueEmpty(true);
     }
+
     getData();
   }
 
-  useCallback(() => {}, []);
+  async function getData() {
+    try {
+      const res = await axios.get(
+        `https://api.shrtco.de/v2/shorten?url=${value}`
+      );
+      const data = res.data;
+      const temp = {
+        key: data.result.code,
+        original: data.result.original_link,
+        short: data.result.full_short_link,
+      };
+
+      if (data.ok) {
+        setLinks([...links, temp]);
+        saveData([...links, temp]);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  function isStorageExist() /* boolean */ {
+    if (typeof Storage === "undefined") {
+      alert("Your browser doesn't support session storage");
+      return false;
+    }
+    return true;
+  }
+
+  function saveData(data) {
+    if (isStorageExist()) {
+      const parsed = JSON.stringify(data);
+      sessionStorage.setItem(STORAGE_KEY, parsed);
+      console.log("save data");
+    }
+  }
+
+  function loadDataFromStorage() {
+    const serializedData = sessionStorage.getItem(STORAGE_KEY);
+    let data = JSON.parse(serializedData);
+
+    if (data !== null) {
+      setLinks(data);
+      console.log("load data");
+    }
+  }
+
+  useEffect(() => {
+    loadDataFromStorage();
+  }, []);
 
   return (
     <StyledSection>
