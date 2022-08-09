@@ -4,7 +4,7 @@ import {
   ShortLinkWrap,
 } from "./styles/ShortLinkCard.styled";
 import { CopyBtn } from "./styles/Button.styled";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 function ShortLinkCard({ url }) {
   const [isBtnClicked, setIsBtnClicked] = useState(false);
