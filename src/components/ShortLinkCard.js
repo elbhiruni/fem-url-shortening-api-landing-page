@@ -9,7 +9,12 @@ import { useState } from "react";
 function ShortLinkCard({ url }) {
   const [isBtnClicked, setIsBtnClicked] = useState(false);
 
-  const handleClick = () => setIsBtnClicked(true);
+  const handleClick = () => {
+    navigator.clipboard.writeText(url.short).then(() => {
+      setIsBtnClicked(true);
+    });
+  };
+
   const handleBlur = () => setIsBtnClicked(false);
 
   return (
