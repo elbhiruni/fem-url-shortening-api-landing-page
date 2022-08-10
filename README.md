@@ -33,7 +33,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Front End Mentor](https://www.frontendmentor.io/solutions/url-shortening-api-landing-page-using-react-axios-styledcomponents-z6Gk7fQQhf)
-- Live Site URL: [Vercel](https://fem-url-shortening-api-master-elbhiruni.vercel.app/)
+- Live Site URL: [Vercel](https://fem-url-shortening-api-landing-page-elbhiruni.vercel.app/)
 
 ## My process
 
