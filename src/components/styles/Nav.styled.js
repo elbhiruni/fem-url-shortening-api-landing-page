@@ -8,7 +8,7 @@ const StyledNav = styled.nav`
   line-height: 1;
 
   @media (min-width: 1024px) {
-    display: block;
+    visibility: visible;
     color: var(--grayish-violet);
 
     & li:hover {

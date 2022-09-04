@@ -27,7 +27,7 @@ function Header() {
             <span className="material-icons">{showNav ? "close" : "menu"}</span>
           </MenuButton>
         </MenuWrapper>
-        <Nav className={showNav ? "show" : ""} />
+        <Nav className={showNav ? "" : "hidden"} />
       </Container>
     </header>
   );

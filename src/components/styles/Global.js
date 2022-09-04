@@ -62,8 +62,8 @@ const GlobalStyles = createGlobalStyle`
     list-style-type: none;
   }
 
-  .show {
-    display: block;
+  .hidden {
+    visibility: hidden;
   }
 
   .invalid {
