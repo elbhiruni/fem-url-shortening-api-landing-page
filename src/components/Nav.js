@@ -30,9 +30,7 @@ function Nav({ className }) {
               <a href="#login">Login</a>
             </li>
             <li>
-              <a href="#signup">
-                <SignUpBtn type="button">Sign Up</SignUpBtn>
-              </a>
+              <SignUpBtn href="#signup">Sign Up</SignUpBtn>
             </li>
           </NavLogin>
         </Card>

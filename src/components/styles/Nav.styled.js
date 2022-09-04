@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 const StyledNav = styled.nav`
-  display: none;
   width: 100%;
   color: white;
   font-weight: 700;
@@ -97,10 +96,6 @@ const NavLogin = styled.ul`
       margin-right: 38px;
       margin-bottom: 0;
     }
-  }
-
-  & li a {
-    display: block;
   }
 `;
 

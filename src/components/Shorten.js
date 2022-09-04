@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 import {
-  StyledSection,
+  StyledDiv,
   Container,
   FormWrapper,
   Form,
@@ -93,7 +93,7 @@ function Shorten() {
   }, []);
 
   return (
-    <StyledSection>
+    <StyledDiv>
       <Container>
         <FormWrapper>
           <Form onSubmit={handleSubmit}>
@@ -119,7 +119,7 @@ function Shorten() {
           })}
         </ShortenWrapper>
       </Container>
-    </StyledSection>
+    </StyledDiv>
   );
 }
 

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import bgShortenMobile from "../../images/bg-shorten-mobile.svg";
 import bgShortenDesktop from "../../images/bg-shorten-desktop.svg";
 
-export const StyledSection = styled.section`
+export const StyledDiv = styled.div`
   margin-top: 88px;
 
   @media (min-width: 768px) {

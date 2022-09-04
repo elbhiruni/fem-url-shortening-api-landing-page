@@ -13,16 +13,34 @@ const Button = styled.button`
   }
 `;
 
+const LinkBtn = styled.a`
+  display: inline-block;
+  color: white;
+  background-color: hsl(180, 66%, 49%);
+  cursor: pointer;
+  user-select: none;
+  font-weight: 700;
+  border-radius: 9999px;
+
+  &:hover {
+    background-color: hsl(180, 66%, 80%);
+  }
+`;
+
 const GetStartedBtn = styled(Button)`
   width: 198px;
   height: 56px;
   font-size: 20px;
 `;
 
-const SignUpBtn = styled(Button)`
+const SignUpBtn = styled(LinkBtn)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: 50px;
   font-size: 18px;
+  padding: auto 0;
 
   @media (min-width: 1024px) {
     width: 105px;
