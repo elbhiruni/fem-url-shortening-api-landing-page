@@ -15,22 +15,22 @@ function Nav({ className }) {
         <Card>
           <LinkPage>
             <li>
-              <a href="#">Features</a>
+              <a href="#features">Features</a>
             </li>
             <li>
-              <a href="#">Pricing</a>
+              <a href="#pricing">Pricing</a>
             </li>
             <li>
-              <a href="#">Resources</a>
+              <a href="#resources">Resources</a>
             </li>
           </LinkPage>
           <Line />
           <NavLogin>
             <li>
-              <a href="#">Login</a>
+              <a href="#login">Login</a>
             </li>
             <li>
-              <a href="#">
+              <a href="#signup">
                 <SignUpBtn type="button">Sign Up</SignUpBtn>
               </a>
             </li>

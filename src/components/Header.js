@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 // Components
 import { Container, MenuWrapper, MenuButton } from "./styles/Header.styled";

@@ -26,34 +26,34 @@ function Footer() {
         <LinkContainer>
           <LinkWrapper>
             <Title>Features</Title>
-            <Link href="#">Link Shortening</Link>
-            <Link href="#">Branded Links</Link>
-            <Link href="#">Analytics</Link>
+            <Link href="#link-shortening">Link Shortening</Link>
+            <Link href="#branded-links">Branded Links</Link>
+            <Link href="#analytics">Analytics</Link>
           </LinkWrapper>
           <LinkWrapper>
             <Title>Resources</Title>
-            <Link href="#">Blog</Link>
-            <Link href="#">Developers</Link>
-            <Link href="#">Support</Link>
+            <Link href="#blog">Blog</Link>
+            <Link href="#developers">Developers</Link>
+            <Link href="#support">Support</Link>
           </LinkWrapper>
           <LinkWrapper>
             <Title>Company</Title>
-            <Link href="#">About</Link>
-            <Link href="#">Our Team</Link>
-            <Link href="#">Careers</Link>
-            <Link href="#">Contact</Link>
+            <Link href="#about">About</Link>
+            <Link href="#ourteam">Our Team</Link>
+            <Link href="#careers">Careers</Link>
+            <Link href="#contact">Contact</Link>
           </LinkWrapper>
           <IconWrapper>
-            <IconLink href="#">
+            <IconLink href="#facebook">
               <IconFacebook />
             </IconLink>
-            <IconLink href="#">
+            <IconLink href="#twitter">
               <IconTwitter />
             </IconLink>
-            <IconLink href="#">
+            <IconLink href="#pinterest">
               <IconPinterest />
             </IconLink>
-            <IconLink href="#">
+            <IconLink href="#instagram">
               <IconInstagram />
             </IconLink>
           </IconWrapper>
