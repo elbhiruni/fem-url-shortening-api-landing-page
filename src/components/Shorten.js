@@ -14,6 +14,13 @@ import { ShortenBtn } from "./styles/Button.styled";
 import ShortLinkCard from "./ShortLinkCard";
 
 function Shorten() {
+  const baseApi = axios.create({
+    baseURL: 'https://cleanuri.com/api/v1/',
+    headers: {
+      'Access-Control-Allow-Origin': '*'
+    }
+  });
+
   const [value, setValue] = useState("");
   const [isValueEmpty, setIsValueEmpty] = useState(null);
   const [links, setLinks] = useState([]);
@@ -43,20 +50,21 @@ function Shorten() {
 
   async function getData() {
     try {
-      const res = await axios.get(
-        `https://api.shrtco.de/v2/shorten?url=${value}`
+      const res = await baseApi.post(
+        `shorten`, {
+          url: value
+        }
       );
+
       const data = res.data;
       const temp = {
-        key: data.result.code,
-        original: data.result.original_link,
-        short: data.result.full_short_link,
+        key: new Date().getTime(),
+        original: value,
+        short: data.result_url,
       };
 
-      if (data.ok) {
-        setLinks([...links, temp]);
-        saveData([...links, temp]);
-      }
+      setLinks([...links, temp]);
+      saveData([...links, temp]);
     } catch (error) {
       console.log(error);
     }
