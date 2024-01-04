@@ -6,6 +6,7 @@ import Shorten from "./components/Shorten";
 import StatisticSection from "./components/StatisticSection";
 import Boost from "./components/Boost";
 import Footer from "./components/Footer";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Boost />
       </main>
       <Footer />
+      <Toaster />
     </>
   );
 }

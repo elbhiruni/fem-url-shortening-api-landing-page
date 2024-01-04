@@ -12,6 +12,7 @@ import {
 } from "./styles/Shorten.styled";
 import { ShortenBtn } from "./styles/Button.styled";
 import ShortLinkCard from "./ShortLinkCard";
+import toast from "react-hot-toast";
 
 function Shorten() {
   const baseApi = axios.create({
@@ -66,7 +67,17 @@ function Shorten() {
       setLinks([...links, temp]);
       saveData([...links, temp]);
     } catch (error) {
-      console.log(error);
+      let message = 'Internal Server Error'
+
+      if (error.response.data?.error) {
+        message = error.response.data.error
+      } else if (error.request) {
+        message = `Request Error: ${error.message}`
+      }
+
+      toast.error(message, {
+        position: 'top-right'
+      })
     }
   }
 
