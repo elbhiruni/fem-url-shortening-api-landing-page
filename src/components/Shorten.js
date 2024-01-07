@@ -16,10 +16,7 @@ import toast from "react-hot-toast";
 
 function Shorten() {
   const baseApi = axios.create({
-    baseURL: 'https://cleanuri.com/api/v1/',
-    headers: {
-      'Access-Control-Allow-Origin': '*'
-    }
+    baseURL: 'https://v.gd/'
   });
 
   const [value, setValue] = useState("");
@@ -51,9 +48,12 @@ function Shorten() {
 
   async function getData() {
     try {
-      const res = await baseApi.post(
-        `shorten`, {
-          url: value
+      const res = await baseApi.get(
+        'create.php', {
+          params: {
+            format: 'json',
+            url: value
+          }
         }
       );
 
@@ -61,7 +61,7 @@ function Shorten() {
       const temp = {
         key: new Date().getTime(),
         original: value,
-        short: data.result_url,
+        short: data.shorturl,
       };
 
       setLinks([...links, temp]);
