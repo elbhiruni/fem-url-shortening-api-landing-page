@@ -11,6 +11,10 @@ const Button = styled.button`
   &:hover {
     background-color: hsl(180, 66%, 80%);
   }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
 `;
 
 const LinkBtn = styled.a`
@@ -57,6 +61,21 @@ const ShortenBtn = styled(Button)`
   @media (min-width: 768px) {
     width: 190px;
     height: 64px;
+  }
+
+  & .loading {
+    height: 32px;
+    width: 32px;
+    animation: spin 1s linear infinite;
+
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
   }
 `;
 

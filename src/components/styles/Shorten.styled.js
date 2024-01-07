@@ -88,6 +88,7 @@ export const InputLink = styled.input`
   border-radius: 4px;
   color: var(--very-dark-blue);
   font-weight: 700;
+  background-color: white;
 
   @media (min-width: 768px) {
     height: 64px;
@@ -101,6 +102,11 @@ export const InputLink = styled.input`
     &::placeholder {
       color: var(--red);
     }
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.8;
   }
 `;
 

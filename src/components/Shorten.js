@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { ReactComponent as Loading } from '../assets/icons/mingcute-loading-3-fill.svg'
 
 import {
   StyledDiv,
@@ -24,6 +25,8 @@ function Shorten() {
   const [links, setLinks] = useState([]);
   const STORAGE_KEY = "URL_SHORTENING_APP";
 
+  const [status, setStatus] = useState("idle");
+
   function handleInput(e) {
     if (isValueEmpty) {
       setIsValueEmpty(false);
@@ -47,6 +50,8 @@ function Shorten() {
   }
 
   async function getData() {
+    setStatus('pending')
+
     try {
       const res = await baseApi.get(
         'create.php', {
@@ -66,7 +71,11 @@ function Shorten() {
 
       setLinks([...links, temp]);
       saveData([...links, temp]);
+
+      setStatus('success')
     } catch (error) {
+      setStatus('error')
+
       let message = 'Internal Server Error'
 
       if (error.response.data?.error) {
@@ -126,10 +135,13 @@ function Shorten() {
                 onInput={handleInput}
                 onBlur={handleBlur}
                 className={isValueEmpty ? "invalid" : ""}
+                disabled={status === 'pending'}
               />
               {isValueEmpty ? <i>Please add a link</i> : ""}
             </InputWrapper>
-            <ShortenBtn type="submit">Shorten It!</ShortenBtn>
+            <ShortenBtn type="submit" disabled={status === 'pending'}>
+              { status === 'pending' ? (<Loading className="loading" />) : 'Shorten It!' }
+            </ShortenBtn>
           </Form>
         </FormWrapper>
         <ShortenWrapper>
